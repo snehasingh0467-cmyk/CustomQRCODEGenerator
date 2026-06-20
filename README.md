@@ -2,6 +2,8 @@
 
 A sleek, modern web application that seamlessly merges your existing QR codes with custom background images.
 
+**🌟 Live Demo:** [https://customqrcodegenerator.vercel.app](https://customqrcodegenerator.vercel.app)
+
 By scanning your uploaded QR code and regenerating it as a transparent dot-pattern, this tool allows your custom background images to shine through beautifully between the dots.
 
 ## ✨ Features
