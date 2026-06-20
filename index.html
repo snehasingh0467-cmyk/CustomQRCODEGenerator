@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Background Merger</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QR Image Studio</h1>
+            <p>Merge your existing QR code with a custom background image</p>
+        </header>
+
+        <main class="dashboard">
+            <div class="controls-panel">
+                <div class="control-group">
+                    <label>Upload QR Code Image</label>
+                    <div class="file-upload">
+                        <input type="file" id="qr-input" accept="image/*">
+                        <label for="qr-input" class="upload-btn">Choose QR Image</label>
+                        <span id="qr-file-name">No file chosen</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Upload Background Image</label>
+                    <div class="file-upload">
+                        <input type="file" id="bg-input" accept="image/*">
+                        <label for="bg-input" class="upload-btn">Choose Background</label>
+                        <span id="bg-file-name">No file chosen</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="opacity-slider">QR Background Visibility (White Opacity)</label>
+                    <div class="slider-container">
+                        <input type="range" id="opacity-slider" min="0" max="1" step="0.05" value="0.7">
+                        <span id="opacity-val">70%</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="density-select">QR Dot Density (Fewer dots = More background)</label>
+                    <select id="density-select" style="margin-top: 0.5rem;">
+                        <option value="L" selected>Low (Fewest Dots)</option>
+                        <option value="M">Medium</option>
+                        <option value="Q">High</option>
+                        <option value="H">Maximum (Most Dots)</option>
+                    </select>
+                </div>
+                
+                <button id="generate-btn" class="primary-btn">Merge Images</button>
+            </div>
+
+            <div class="preview-panel">
+                <div class="qr-container">
+                    <!-- Canvas will composite the images -->
+                    <canvas id="result-canvas" width="400" height="400"></canvas>
+                </div>
+                <div class="download-actions">
+                    <button id="download-png" class="secondary-btn">Download Final Image</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
